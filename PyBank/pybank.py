@@ -6,16 +6,45 @@ import csv
 
 csvpath = os.path.join('budget_data.csv')
 
-def bankInfo(bankData):
-           
+#def bankInfo(bankData):
+        
         #these work: 
         #print(bankData[1])
-        profLoss = (bankData[1])
-        date = (bankData[0])
-        
-        print(date)
-        print(profLoss)
+        #profLoss = []
+        #row = bankData[1]
+        #print(row)
     
+
+
+        #for row in bankData:
+            #total += row
+            #print(row)
+            #profLoss.append(row)
+            #return profLoss
+
+        #profLoss = int((bankData[1])).append
+        #date = (bankData[0])
+        #length = len(bankData[1])
+        
+        #print(date)
+        #print(profLoss)
+        #print(length)
+        
+        #total = 0
+       #for x in profLoss[1]:
+            #total += profLoss
+            #print(total)
+
+        #for x in bankData[1]:
+            #total += x
+            #print(x)
+          
+       
+    
+     
+
+      
+
     #for number in bankData:
         #print(bankData)
 
@@ -79,15 +108,27 @@ with open(csvpath, newline='') as csvfile:
     # Read the header row first (skip this step if there is now header)
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
- 
+    
+    total = 0
     # Read each row of data after the header
     for row in csvreader:
-        #print(int(row[1]))
+        
+        total += int(row[1])
+    # The net total amount of "Profit/Losses" over the entire period
+    print(total)
+       
+        #bankInfo(row)
+    
 
-        # If the wrestler's name in a row is equal to that which the user input, run the 'getPercentages()' function
-        #if(nameToCheck == row[0]):
-            #getPercentages(row)
-        bankInfo(row)
+        #print(int(row[1]))
+        
+        #this works:        
+             
+        #data = map(float,row)
+        #print(row)
+        #this works
+        #bankInfo(row)
+   
 
 # The total number of months included in the dataset
 #* The net total amount of "Profit/Losses" over the entire period

@@ -1,51 +1,35 @@
-# The total number of months included in the dataset
-#* The net total amount of "Profit/Losses" over the entire period
-#* The average of the changes in "Profit/Losses" over the entire period
-#* The greatest increase in profits (date and amount) over the entire period
-#* The greatest decrease in losses (date and amount) over the entire period
-
 # Import the os module to create file paths across operating systems
 import os
 
 # Import the csv module for reading CSV files
 import csv
 
-
-
-
 csvpath = os.path.join('budget_data.csv')
 
-# The total number of months included in the dataset
-def monthTotal(month):
+def bankInfo(month, profLoss):
+    print("Financial Analysis")
+    #print(month)
     monthSum = len(month)
     #print(monthSum)
-
-# The net total amount of "Profit/Losses" over the entire period
-def profLossSum(profLoss):
-    #print(profLoss)
+    print(f"Total Months: {monthSum}" )
     total = 0
     for row in profLoss:
         #print(row)
         total += int(row)
     #print(total)
-    return(total)
-    
+    print(f"Total: ${total}" )
+    average = total / monthSum
+    #print(str(round(average,2)))
+    print(f"Average Change: ${round(average,2)}" )
+    result = list(zip(month, profLoss))
+    #print(result)
+    maxResult = max(result)
+    #print(maxResult)
+    print(f"Greatest Increase in Profits: {maxResult[0]} (${maxResult[1]})" )
+    minResult = min(result)
+    #print(minResult)
+    print(f"Greatest Decrease in Profits: {minResult[0]} (${minResult[1]})" )
 
-# The average of the changes in "Profit/Losses" over the entire period
-def profLossAvg(total):
-    print(total)
-
-#def bankInfo(bankData):
-        
-        #these work: 
-        #print(bankData[1])
-        #profLoss = []
-        #row = bankData[1]
-        #print(row)
-    
-
-
-        
 
 with open(csvpath, newline='') as csvfile:
 
@@ -56,11 +40,10 @@ with open(csvpath, newline='') as csvfile:
 
     # Read the header row first (skip this step if there is now header)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
     
     profLoss = []
     month = []
-    #total = 0
     
     # Read each row of data after the header
     for row in csvreader:
@@ -68,9 +51,11 @@ with open(csvpath, newline='') as csvfile:
         month.append(row[0])
     #print(profLoss)
     #print(month)
-    monthTotal(month)
-    profLossSum(profLoss)
-    #profLossAvg(total)
+    
+
+    #* In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+
+    bankInfo(month, profLoss)
     
         
    

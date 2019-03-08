@@ -29,7 +29,10 @@ def bankInfo(month, profLoss):
     minResult = min(result)
     #print(minResult)
     print(f"Greatest Decrease in Profits: {minResult[0]} (${minResult[1]})" )
-
+    #open file and write results to file
+    f = open("results.txt", 'w')
+    f.write("Financial Analysis\n" f"Total Months: {monthSum}\n" f"Total: ${total}\n" f"Average Change: ${round(average,2)}\n" f"Greatest Increase in Profits: {maxResult[0]} (${maxResult[1]})\n" f"Greatest Decrease in Profits: {minResult[0]} (${minResult[1]})\n")
+    f.close()
 
 with open(csvpath, newline='') as csvfile:
 

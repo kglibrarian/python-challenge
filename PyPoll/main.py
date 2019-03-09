@@ -6,26 +6,6 @@ import csv
 
 csvpath = os.path.join('election_data_test.csv')
 
-#```text
-  #Election Results
-  #-------------------------
-  #Total Votes: 3521001
-  #-------------------------
-  #Khan: 63.000% (2218231)
-  #Correy: 20.000% (704200)
-  #Li: 14.000% (492940)
-  #O'Tooley: 3.000% (105630)
-  #-------------------------
-  #Winner: Khan
- # -------------------------
-  #```
-
-#The total number of votes cast
-#A complete list of candidates who received votes
-#The percentage of votes each candidate won
-#The total number of votes each candidate won
-#The winner of the election based on popular vote.
-
 def voterInfo(voterID, county, candidate):
         
     #The total number of votes cast
@@ -40,19 +20,16 @@ def voterInfo(voterID, county, candidate):
     candidateSum = {i:candidate.count(i) for i in candidate}
     
     #print("candidateSum: ", candidateSum)
-    for i in candidateSum:
-        print(i)
+    winner = max(candidateSum, key=candidateSum.get)  
+    #print("Winner: ", winner, candidateSum[winner])
     
-    #candidatePercent = []
+
 
     #create an empty dictionary for the final data
     finalData = {}
 
     #loop through each Key: candidate in our current dictionary
-    for k, v in candidateSum.items():
-        if v < 
-        #print(k, v[0], v[1])
-        print(f"{k} : {v[0]} ({v[1]})")
+    for i in candidateSum: 
         
         #each Key: candidate should be i
         #print("i: ", i)
@@ -81,29 +58,8 @@ def voterInfo(voterID, county, candidate):
         #print(k, v[0], v[1])
         print(f"{k} : {v[0]} ({v[1]})")
            
-    #print(finalData(1))
-        #candidatePercent.append(candidateInfo)
-    #print(candidatePercent)
-    #print(candidatePercent.iteritems())
-    
-    #delete from function here down!!
-
-    #print(f"{candidatePercent[0]} \n" f"{candidatePercent[1]}")
-    #print(f"Average Change: ${round(average,2)}" )
-
-        #candidatePercent.append({i:candidateAvg})
-      
-    
-    #result = list(zip(candidateUnique, candidateAvg))
-    #print(result)
-
-
-    #The total number of votes each candidate won
-    #The winner of the election based on popular vote.
-    #result = list(zip(voterID, county, candidate))
-    #print(result)
-
-
+    winner = max(finalData, key=finalData.get)  
+    print("Winner: ", winner)
 
 
 with open(csvpath, newline='') as csvfile:

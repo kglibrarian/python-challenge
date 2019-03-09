@@ -4,10 +4,11 @@ import os
 # Import the csv module for reading CSV files
 import csv
 
-csvpath = os.path.join('election_data.csv')
+csvpath = os.path.join('election_data_test.csv')
 
 def voterInfo(voterID, county, candidate):
-        
+    print("Election Results")
+
     #The total number of votes cast
     voterSum = len(voterID)
     print(f"Total Votes: {voterSum}")
@@ -53,14 +54,31 @@ def voterInfo(voterID, county, candidate):
     #print the finalData dictionary
     #print(finalData)
     
+    test = []
     #loop through the items in the dictionary and print them
     for k, v in finalData.items():
         #print(k, v[0], v[1])
-        print(f"{k} : {v[0]} ({v[1]})")
-           
+        print(f"{k}: {v[0]} ({v[1]})")
+        name = k
+        percent = v[0]
+        votes = v[1]
+        test.append(name)
+        test.append(percent)
+        test.append(votes)
+    #print(test)
+        
+    
+    
+    #dictionary comprehension version
+    #test = {k:v for k, v in finalData.items()}
+    #print("test is: " , test)
+    
     winner = max(finalData, key=finalData.get)  
     print("Winner: ", winner)
-
+    
+    f = open("results.txt", 'w')
+    f.write("Election Results\n" f"Total Votes: {voterSum}\n"  f"{test[0]}  {test[1]}  ({test[2]})\n" f"Winner: {winner}\n")
+    f.close()
 
 with open(csvpath, newline='') as csvfile:
 

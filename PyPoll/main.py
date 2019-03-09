@@ -4,7 +4,7 @@ import os
 # Import the csv module for reading CSV files
 import csv
 
-csvpath = os.path.join('election_data_test.csv')
+csvpath = os.path.join('election_data.csv')
 
 def voterInfo(voterID, county, candidate):
         

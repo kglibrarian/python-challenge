@@ -59,12 +59,14 @@ def voterInfo(voterID, county, candidate):
     for k, v in finalData.items():
         #print(k, v[0], v[1])
         print(f"{k}: {v[0]} ({v[1]})")
+        #the code below is just to get access to print this outside of the loop
         name = k
         percent = v[0]
         votes = v[1]
         test.append(name)
         test.append(percent)
         test.append(votes)
+        
     #print(test)
         
     
